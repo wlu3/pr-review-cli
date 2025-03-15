@@ -29,11 +29,11 @@ const options = program.opts();
 async function main() {
   try {
     // Extract repo owner, name, and PR number from URL
-    const prUrlPattern = /github\.com\/([^\/]+)\/([^\/]+)\/pull\/(\d+)/;
+    const prUrlPattern = /github\.com\/([^\/]+)\/([^\/]+)\/pull\/(\d+)(?:\/|$|\?)/; // Enhanced regex
     const match = options.url.match(prUrlPattern);
     
     if (!match) {
-      console.error('Invalid GitHub PR URL format');
+      console.error('Invalid GitHub PR URL format. Ensure it follows the pattern: https://github.com/<owner>/<repo>/pull/<number>');
       process.exit(1);
     }
     
@@ -56,11 +56,10 @@ async function main() {
     // Generate markdown report
     console.log('Creating markdown report...');
     const markdownReport = generateMarkdownReport(prDetails, reviewResults);
-    
+
     // Write to file
     const outputPath = path.resolve(options.output);
     fs.writeFileSync(outputPath, markdownReport);
-    
     console.log(`Review completed! Report saved to: ${outputPath}`);
   } catch (error) {
     console.error('Error:', error.message);
