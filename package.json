@@ -1,0 +1,22 @@
+{
+  "name": "pr-review-cli",
+  "version": "1.0.0",
+  "description": "AI-powered GitHub PR reviewer",
+  "main": "src/index.js",
+  "bin": {
+    "pr-review": "src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "@octokit/rest": "^19.0.7",
+    "commander": "^11.0.0",
+    "dotenv": "^16.3.1",
+    "fs-extra": "^11.1.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
