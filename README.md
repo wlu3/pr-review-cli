@@ -25,7 +25,7 @@ An AI-powered GitHub Pull Request reviewer using Anthropic's Claude model. This 
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/yourusername/pr-review-cli.git
+   git clone https://github.com/wlu3/pr-review-cli
    cd pr-review-cli
    ```
 
